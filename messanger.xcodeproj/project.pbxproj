@@ -22,6 +22,8 @@
 		F05A62562B317136007BAAB7 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A62552B317136007BAAB7 /* VideoPlayerViewController.swift */; };
 		F05A62582B317144007BAAB7 /* NewConverstionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A62572B317144007BAAB7 /* NewConverstionViewController.swift */; };
 		F05A625A2B317153007BAAB7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A62592B317153007BAAB7 /* ProfileViewController.swift */; };
+		F05A625D2B318327007BAAB7 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = F05A625C2B318327007BAAB7 /* AppIcon.appiconset */; };
+		F05A625F2B319805007BAAB7 /* Extantion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A625E2B319805007BAAB7 /* Extantion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		F05A62552B317136007BAAB7 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		F05A62572B317144007BAAB7 /* NewConverstionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConverstionViewController.swift; sourceTree = "<group>"; };
 		F05A62592B317153007BAAB7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F05A625C2B318327007BAAB7 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = ../../../../Downloads/AppIcons/Assets.xcassets/AppIcon.appiconset; sourceTree = "<group>"; };
+		F05A625E2B319805007BAAB7 /* Extantion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extantion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 		F05A62392B3169A8007BAAB7 /* messangerUITests */ = {
 			isa = PBXGroup;
 			children = (
+				F05A625C2B318327007BAAB7 /* AppIcon.appiconset */,
 				F05A623A2B3169A8007BAAB7 /* messangerUITests.swift */,
 				F05A623C2B3169A8007BAAB7 /* messangerUITestsLaunchTests.swift */,
 			);
@@ -142,8 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				F05A621D2B3169A7007BAAB7 /* ConverstionViewController.swift */,
-				F05A624F2B3170F4007BAAB7 /* LoginViewController.swift */,
-				F05A62512B31710A007BAAB7 /* RegisterViewController.swift */,
+				F05A625B2B3174C3007BAAB7 /* llogin */,
 				F05A62532B317123007BAAB7 /* PhotoViewerViewController.swift */,
 				F05A62552B317136007BAAB7 /* VideoPlayerViewController.swift */,
 				F05A62572B317144007BAAB7 /* NewConverstionViewController.swift */,
@@ -180,6 +184,7 @@
 			children = (
 				F05A62192B3169A7007BAAB7 /* AppDelegate.swift */,
 				F05A621B2B3169A7007BAAB7 /* SceneDelegate.swift */,
+				F05A625E2B319805007BAAB7 /* Extantion.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -191,6 +196,15 @@
 				F05A62242B3169A8007BAAB7 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F05A625B2B3174C3007BAAB7 /* llogin */ = {
+			isa = PBXGroup;
+			children = (
+				F05A624F2B3170F4007BAAB7 /* LoginViewController.swift */,
+				F05A62512B31710A007BAAB7 /* RegisterViewController.swift */,
+			);
+			path = llogin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05A625D2B318327007BAAB7 /* AppIcon.appiconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +347,7 @@
 				F05A621A2B3169A7007BAAB7 /* AppDelegate.swift in Sources */,
 				F05A625A2B317153007BAAB7 /* ProfileViewController.swift in Sources */,
 				F05A621C2B3169A7007BAAB7 /* SceneDelegate.swift in Sources */,
+				F05A625F2B319805007BAAB7 /* Extantion.swift in Sources */,
 				F05A62542B317123007BAAB7 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
