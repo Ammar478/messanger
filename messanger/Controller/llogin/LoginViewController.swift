@@ -65,19 +65,38 @@ class LoginViewController: UIViewController {
         
         return field
     }()
+    
+    private let loginButton:UIButton={
+        let button=UIButton()
+        button.layer.cornerRadius=12
+        button.layer.borderWidth=1
+        button.layer.borderColor = .none
+        button.backgroundColor = .link
+        button.setTitle("LogIn", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.masksToBounds=true
+        button.titleLabel?.font = .systemFont(ofSize: 23)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailField.delegate=self
+        passwordField.delegate=self
         
         title="Login "
         view.backgroundColor = .systemGray4
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Resgister", style: .plain, target: self, action: #selector(didTapRegiester))
         
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
+        scrollView.addSubview(loginButton)
         
     }
     
@@ -91,6 +110,8 @@ class LoginViewController: UIViewController {
         imageView.frame=CGRect(x: (scrollView.width-size)/2, y: scrollView.top+100, width: size, height: size)
         emailField.frame=CGRect(x: 30, y: imageView.bottom+20, width: scrollView.width-50, height: 52)
         passwordField.frame=CGRect(x: 30, y: emailField.bottom+20, width: scrollView.width-50, height: 52)
+        loginButton.frame=CGRect(x: 30, y: passwordField.bottom+20, width: scrollView.width-50, height: 52)
+
         
     }
     
@@ -106,7 +127,39 @@ class LoginViewController: UIViewController {
         present(regisotrNav,animated: false)
        
    }
+    
+    @objc private func loginButtonTapped(){
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
+        guard let email=emailField.text , let password = passwordField.text ,
+              !email.isEmpty, !password.isEmpty, password.count >= 6 else{
+            
+            alrtUserLoginError()
+            return
+        }
+    }
 
- 
+     func alrtUserLoginError(){
+         let alert = UIAlertController(title: "Woops", message: "plz dont left the field empty", preferredStyle: .alert)
+         
+         alert.addAction(UIAlertAction.init(title: "Dismess", style: .cancel, handler: nil))
+         
+         present(alert ,animated: true)
+    }
 
 }
+
+extension LoginViewController:UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField==emailField{
+            passwordField.becomeFirstResponder()
+        }else
+             if textField==passwordField{
+                loginButtonTapped()
+            }
+            return true
+        }
+    }
+
