@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 100
         imageView.clipsToBounds = true
+        imageView.layer.masksToBounds=true
         return imageView
     }()
     
@@ -108,6 +109,7 @@ class LoginViewController: UIViewController {
         let size = scrollView.width/3
        
         imageView.frame=CGRect(x: (scrollView.width-size)/2, y: scrollView.top+100, width: size, height: size)
+        imageView.layer.cornerRadius=imageView.width/2.0
         emailField.frame=CGRect(x: 30, y: imageView.bottom+20, width: scrollView.width-50, height: 52)
         passwordField.frame=CGRect(x: 30, y: emailField.bottom+20, width: scrollView.width-50, height: 52)
         loginButton.frame=CGRect(x: 30, y: passwordField.bottom+20, width: scrollView.width-50, height: 52)
