@@ -189,20 +189,37 @@ class RegisterViewController: UIViewController {
             return
         }
         
-       FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password,completion: {authResult,error in
-            guard let result = authResult,error == nil else{
-                print("Filed to create user \(email)")
+        DatabaseManger.shared.isAccountExsit(with: email, completion: {[weak self] isExisted in
+            guard let strong_self = self else{
                 return
             }
             
-            let  createdAccount = result.user.uid
-            print(createdAccount)
+            guard !isExisted else{
+                self?.alrtUserLoginError(message:"this \(email) already exist")
+                return
+            }
+            
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password,completion: {authResult,error in
+                 guard authResult != nil ,error == nil else{
+                     print("Filed to create user \(email)")
+                     return
+                 }
+                DatabaseManger.shared.insertNewAccount(with: NewAccountInfo(firstName: firstName, lastName: lastName, email: email))
+                
+                strong_self.navigationController?.dismiss(animated: true)
+                
+             })
+            
+            
+            
         })
+        
+      
         
     }
 
-     func alrtUserLoginError(){
-         let alert = UIAlertController(title: "Woops", message: "please fill all the field to create new account", preferredStyle: .alert)
+    func alrtUserLoginError(message:String = "Please fill all the field to create a account."){
+         let alert = UIAlertController(title: "Woops", message: message, preferredStyle: .alert)
          
          alert.addAction(UIAlertAction.init(title: "Dismess", style: .cancel, handler: nil))
          

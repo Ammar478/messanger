@@ -23,6 +23,7 @@
 		F05A625A2B317153007BAAB7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A62592B317153007BAAB7 /* ProfileViewController.swift */; };
 		F05A625F2B319805007BAAB7 /* Extantion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A625E2B319805007BAAB7 /* Extantion.swift */; };
 		F05A62612B32F963007BAAB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F05A62602B32F963007BAAB7 /* GoogleService-Info.plist */; };
+		F05A62672B3456AC007BAAB7 /* DataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A62662B3456AC007BAAB7 /* DataManger.swift */; };
 		FE10D0921DEAF50AF95AF19C /* Pods_messangerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2A79D78A4606A747D7B11F /* Pods_messangerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		F05A62592B317153007BAAB7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F05A625E2B319805007BAAB7 /* Extantion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extantion.swift; sourceTree = "<group>"; };
 		F05A62602B32F963007BAAB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F05A62662B3456AC007BAAB7 /* DataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				F05A62192B3169A7007BAAB7 /* AppDelegate.swift */,
 				F05A621B2B3169A7007BAAB7 /* SceneDelegate.swift */,
 				F05A625E2B319805007BAAB7 /* Extantion.swift */,
+				F05A62662B3456AC007BAAB7 /* DataManger.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05A62672B3456AC007BAAB7 /* DataManger.swift in Sources */,
 				F05A62582B317144007BAAB7 /* NewConverstionViewController.swift in Sources */,
 				F05A62502B3170F4007BAAB7 /* LoginViewController.swift in Sources */,
 				F05A62562B317136007BAAB7 /* VideoPlayerViewController.swift in Sources */,
