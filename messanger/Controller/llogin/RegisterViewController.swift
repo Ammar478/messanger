@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
@@ -142,6 +143,7 @@ class RegisterViewController: UIViewController {
         let gesture=UITapGestureRecognizer(target: self, action: #selector(updateAvatarTapped))
         
         imageView.addGestureRecognizer(gesture)
+        regiestButton.addTarget(self, action: #selector(regiestButtonTapped), for: .touchUpInside)
         
     }
     
@@ -186,6 +188,16 @@ class RegisterViewController: UIViewController {
             alrtUserLoginError()
             return
         }
+        
+       FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password,completion: {authResult,error in
+            guard let result = authResult,error == nil else{
+                print("Filed to create user \(email)")
+                return
+            }
+            
+            let  createdAccount = result.user.uid
+            print(createdAccount)
+        })
         
     }
 
