@@ -5,13 +5,14 @@ import Firebase
 final class  DatabaseManger{
     static let shared = DatabaseManger()
     
-    let databace = Database.database().reference()
+    let databace = Database.database(url: "https://massenger-3fd2a-default-rtdb.asia-southeast1.firebasedatabase.app").reference()
 }
 
 extension DatabaseManger {
     
     public func isAccountExsit(with email:String ,completion:@escaping ((Bool)->Void)){
-        databace.child(email).observeSingleEvent(of: .value, with: {snapshot in
+        var safeEmail=decodeEmail(with: email)
+        databace.child(safeEmail).observeSingleEvent(of: .value, with: {snapshot in
             guard snapshot.value as? String != nil else {
                 completion(false)
                 return
@@ -22,10 +23,17 @@ extension DatabaseManger {
     }
     
     public func insertNewAccount(with user:NewAccountInfo){
-        databace.child(user.email).setValue([
+        
+        databace.child(user.codedEmail).setValue([
             "first_name":user.firstName,
             "last_name":user.lastName
         ])
+    }
+    
+    private func  decodeEmail(with email:String)->String{
+        var safeEmail=email.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
     }
 }
 
@@ -33,5 +41,11 @@ struct NewAccountInfo{
     let firstName:String
     let lastName:String
     let email:String
+    
+    var codedEmail:String {
+        var safeEmail=email.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
+    }
 //    let accountImgURL:URL
 }

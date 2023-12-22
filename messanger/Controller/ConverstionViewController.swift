@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ConverstionViewController: UIViewController {
     
@@ -24,9 +25,9 @@ class ConverstionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        let isLogedIn=UserDefaults.standard.bool(forKey: "logged_ins")
         
-        if !isLogedIn{
+        
+        if FirebaseAuth.Auth.auth().currentUser == nil {
             
             let loginVC=LoginViewController()
             

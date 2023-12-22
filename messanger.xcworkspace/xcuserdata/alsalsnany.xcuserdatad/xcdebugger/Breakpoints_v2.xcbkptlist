@@ -14,8 +14,8 @@
             filePath = "messanger/Resources/DataManger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "insertNewAccount(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,10 +30,42 @@
             filePath = "messanger/Resources/DataManger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "insertNewAccount(with:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A2C6AAC3-5D94-453F-A301-5B912FD2D3F1 - f2e5558884041a34"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "messanger.DatabaseManger.insertNewAccount(with: messanger.NewAccountInfo) -&gt; ()"
+                  moduleName = "messanger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alsalsnany/Postman/Native%20IOS/messanger/messanger/Resources/DataManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "A2C6AAC3-5D94-453F-A301-5B912FD2D3F1 - f2e5558884041a34"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "messanger.DatabaseManger.insertNewAccount(with: messanger.NewAccountInfo) -&gt; ()"
+                  moduleName = "messanger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alsalsnany/Postman/Native%20IOS/messanger/messanger/Resources/DataManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -125,8 +157,8 @@
             filePath = "messanger/Resources/DataManger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "insertNewAccount(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -145,6 +177,38 @@
             endingLineNumber = "13"
             landmarkName = "isAccountExsit(with:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DE223A1C-B158-4778-9587-9E479F4D8CCE - 8b02b0409d2109d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "messanger.DatabaseManger.isAccountExsit(with: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "messanger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alsalsnany/Postman/Native%20IOS/messanger/messanger/Resources/DataManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "DE223A1C-B158-4778-9587-9E479F4D8CCE - 8b02b0409d2108f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "messanger.DatabaseManger.isAccountExsit(with: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "messanger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alsalsnany/Postman/Native%20IOS/messanger/messanger/Resources/DataManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
