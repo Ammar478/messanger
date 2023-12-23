@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
@@ -80,15 +81,19 @@ class LoginViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 23)
         return button
     }()
+    
+    let loginButtonFB = FBLoginButton()
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
+        loginButtonFB.center = view.center
+        loginButtonFB.layer.cornerRadius=12
         emailField.delegate=self
         passwordField.delegate=self
         
         title="Login "
-        view.backgroundColor = .systemGray4
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Resgister", style: .plain, target: self, action: #selector(didTapRegiester))
         
@@ -99,6 +104,7 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
+        scrollView.addSubview(loginButtonFB)
         
     }
     
@@ -114,6 +120,7 @@ class LoginViewController: UIViewController {
         emailField.frame=CGRect(x: 30, y: imageView.bottom+20, width: scrollView.width-50, height: 52)
         passwordField.frame=CGRect(x: 30, y: emailField.bottom+20, width: scrollView.width-50, height: 52)
         loginButton.frame=CGRect(x: 30, y: passwordField.bottom+20, width: scrollView.width-50, height: 52)
+        loginButtonFB.frame=CGRect(x:30,y:loginButton.bottom+20,width:scrollView.width-50 ,height: 52)
 
         
     }
