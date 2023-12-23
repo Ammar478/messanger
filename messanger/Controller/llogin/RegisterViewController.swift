@@ -7,8 +7,11 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let scrollView:UIScrollView = {
         var scrollView = UIScrollView()
@@ -189,6 +192,8 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        spinner.show(in: view)
+        
         DatabaseManger.shared.isAccountExsit(with: email, completion: {[weak self] isExisted in
             guard let strong_self = self else{
                 return
@@ -205,6 +210,10 @@ class RegisterViewController: UIViewController {
                      return
                  }
                 DatabaseManger.shared.insertNewAccount(with: NewAccountInfo(firstName: firstName, lastName: lastName, email: email))
+                
+                DispatchQueue.main.async{
+                    strong_self.spinner.dismiss()
+                }
                 
                 strong_self.navigationController?.dismiss(animated: true)
                 

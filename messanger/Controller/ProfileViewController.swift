@@ -7,8 +7,11 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class ProfileViewController: UIViewController {
+    
+    private let spinner = JGProgressHUD(style: .dark)
 
     let data=["Log Out"]
     @IBOutlet var tableView:UITableView!
@@ -40,6 +43,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        
+        
         let signoutAlert=UIAlertController(title: "Do you want to signout", message: "", preferredStyle:.actionSheet)
         signoutAlert.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: {[weak self] _ in
         
@@ -48,6 +53,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             }
             
             do{
+                storngSelf.spinner.show(in: storngSelf.view)
                 try FirebaseAuth.Auth.auth().signOut()
                 
                 let loginVC=LoginViewController()
@@ -57,6 +63,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
                 navLogin.modalPresentationStyle = .fullScreen
                 
                 storngSelf.present(navLogin, animated: true)
+                storngSelf.spinner.dismiss()
                 
             }catch{
                 print("Field to signOut")

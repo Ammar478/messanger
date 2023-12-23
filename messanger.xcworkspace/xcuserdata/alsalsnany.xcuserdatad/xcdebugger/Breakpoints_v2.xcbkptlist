@@ -94,8 +94,8 @@
             filePath = "messanger/Controller/llogin/RegisterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "regiestButtonTapped()"
             landmarkType = "7">
             <Locations>
