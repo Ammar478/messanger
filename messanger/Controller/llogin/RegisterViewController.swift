@@ -46,7 +46,7 @@ class RegisterViewController: UIViewController {
         field.rightViewMode = .always
         field.backgroundColor = .white
         field.textAlignment = .center
-
+        
         return field
     }()
     private let firstNameField:UITextField={
@@ -65,7 +65,7 @@ class RegisterViewController: UIViewController {
         field.rightViewMode = .always
         field.backgroundColor = .white
         field.textAlignment = .center
-
+        
         return field
     }()
     private let lastNameField:UITextField={
@@ -84,7 +84,7 @@ class RegisterViewController: UIViewController {
         field.rightViewMode = .always
         field.backgroundColor = .white
         field.textAlignment = .center
-
+        
         return field
     }()
     
@@ -120,7 +120,7 @@ class RegisterViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 23)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         firstNameField.delegate=self
@@ -167,7 +167,7 @@ class RegisterViewController: UIViewController {
         emailField.frame=CGRect(x: 30, y: lastNameField.bottom+20, width: scrollView.width-50, height: 52)
         passwordField.frame=CGRect(x: 30, y: emailField.bottom+20, width: scrollView.width-50, height: 52)
         regiestButton.frame=CGRect(x: 30, y: passwordField.bottom+20, width: scrollView.width-50, height: 52)
-
+        
         
     }
     
@@ -205,11 +205,32 @@ class RegisterViewController: UIViewController {
             }
             
             FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password,completion: {authResult,error in
-                 guard authResult != nil ,error == nil else{
-                     print("Filed to create user \(email)")
-                     return
-                 }
-                DatabaseManger.shared.insertNewAccount(with: NewAccountInfo(firstName: firstName, lastName: lastName, email: email))
+                guard authResult != nil ,error == nil else{
+                    print("Filed to create user \(email)")
+                    return
+                }
+                
+                let chatUser=NewAccountInfo(firstName: firstName, lastName: lastName, email: email)
+                
+                DatabaseManger.shared.insertNewAccount(with:chatUser,completion: {isInsertCorrectly in
+                    
+                    if isInsertCorrectly{
+                        guard let image = strong_self.imageView.image, let data = image.pngData() else{
+                            return
+                        }
+                        
+                        StorageManger.shared.uploadProfileImage(with: data, fileName: chatUser.profileimgFileName, completion: {result in
+                            
+                            switch result{
+                            case .failure(let error):
+                                print("error\(error)")
+                            case .success(let imageURL):
+                                UserDefaults.standard.set(imageURL, forKey: "profile_image_user")
+                                print("profile image :\(imageURL)")
+                            }
+                        })
+                    }
+                } )
                 
                 DispatchQueue.main.async{
                     strong_self.spinner.dismiss()
@@ -217,24 +238,24 @@ class RegisterViewController: UIViewController {
                 
                 strong_self.navigationController?.dismiss(animated: true)
                 
-             })
+            })
             
             
             
         })
         
-      
+        
         
     }
-
+    
     func alrtUserLoginError(message:String = "Please fill all the field to create a account."){
-         let alert = UIAlertController(title: "Woops", message: message, preferredStyle: .alert)
-         
-         alert.addAction(UIAlertAction.init(title: "Dismess", style: .cancel, handler: nil))
-         
-         present(alert ,animated: true)
+        let alert = UIAlertController(title: "Woops", message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction.init(title: "Dismess", style: .cancel, handler: nil))
+        
+        present(alert ,animated: true)
     }
-
+    
 }
 
 
@@ -251,12 +272,12 @@ extension RegisterViewController:UITextFieldDelegate{
         if textField==emailField{
             passwordField.becomeFirstResponder()
         }else
-             if textField==passwordField{
-                regiestButtonTapped()
-            }
-            return true
+        if textField==passwordField{
+            regiestButtonTapped()
         }
+        return true
     }
+}
 
 extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
@@ -267,7 +288,7 @@ extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationCon
         
         actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: {[weak self] _ in
             self?.presentCamera()
-            }))
+        }))
         
         actionSheet.addAction(UIAlertAction(title: "Chose Photo", style: .default, handler: {[weak self] _ in
             self?.presentPhotoPicker()
@@ -282,7 +303,7 @@ extension RegisterViewController:UIImagePickerControllerDelegate,UINavigationCon
         cameraVC.delegate=self
         cameraVC.allowsEditing=true
         present(cameraVC,animated: true)
-         
+        
     }
     
     func presentPhotoPicker(){

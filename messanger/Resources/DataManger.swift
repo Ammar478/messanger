@@ -22,12 +22,19 @@ extension DatabaseManger {
         
     }
     
-    public func insertNewAccount(with user:NewAccountInfo){
+    public func insertNewAccount(with user:NewAccountInfo,completion:@escaping((Bool)->Void)){
         
         databace.child(user.codedEmail).setValue([
             "first_name":user.firstName,
             "last_name":user.lastName
-        ])
+        ],withCompletionBlock: {error,_ in
+            
+            guard error == nil else{
+                completion(false)
+                return
+            }
+            completion(true)
+        })
     }
     
     private func  decodeEmail(with email:String)->String{
@@ -47,5 +54,8 @@ struct NewAccountInfo{
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
-//    let accountImgURL:URL
+    var profileimgFileName:String {
+        
+        return "\(codedEmail)_profile_picture.png"
+    }
 }

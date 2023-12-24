@@ -62,7 +62,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
                 
                 navLogin.modalPresentationStyle = .fullScreen
                 
-                storngSelf.present(navLogin, animated: true)
+                storngSelf.present(navLogin, animated: false)
                 storngSelf.spinner.dismiss()
                 
             }catch{

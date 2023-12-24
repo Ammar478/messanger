@@ -25,6 +25,7 @@
 		F05A62612B32F963007BAAB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F05A62602B32F963007BAAB7 /* GoogleService-Info.plist */; };
 		F05A62672B3456AC007BAAB7 /* DataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A62662B3456AC007BAAB7 /* DataManger.swift */; };
 		F05A62692B36FF91007BAAB7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A62682B36FF91007BAAB7 /* ChatViewController.swift */; };
+		F05A626B2B380124007BAAB7 /* StorageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A626A2B380124007BAAB7 /* StorageManger.swift */; };
 		FE10D0921DEAF50AF95AF19C /* Pods_messangerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2A79D78A4606A747D7B11F /* Pods_messangerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		F05A62602B32F963007BAAB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F05A62662B3456AC007BAAB7 /* DataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManger.swift; sourceTree = "<group>"; };
 		F05A62682B36FF91007BAAB7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		F05A626A2B380124007BAAB7 /* StorageManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				F05A621B2B3169A7007BAAB7 /* SceneDelegate.swift */,
 				F05A625E2B319805007BAAB7 /* Extantion.swift */,
 				F05A62662B3456AC007BAAB7 /* DataManger.swift */,
+				F05A626A2B380124007BAAB7 /* StorageManger.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				F05A62582B317144007BAAB7 /* NewConverstionViewController.swift in Sources */,
 				F05A62502B3170F4007BAAB7 /* LoginViewController.swift in Sources */,
 				F05A62562B317136007BAAB7 /* VideoPlayerViewController.swift in Sources */,
+				F05A626B2B380124007BAAB7 /* StorageManger.swift in Sources */,
 				F05A62522B31710A007BAAB7 /* RegisterViewController.swift in Sources */,
 				F05A621E2B3169A7007BAAB7 /* ConverstionViewController.swift in Sources */,
 				F05A621A2B3169A7007BAAB7 /* AppDelegate.swift in Sources */,
